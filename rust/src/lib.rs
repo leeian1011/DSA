@@ -7,7 +7,7 @@ mod tests {
     #[test]
     fn it_works() {
         let arr: [i32; 10] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-        let item = 10;
+        let item = 9;
         assert_eq!(binary_search::binary_search(&arr, &item), true);
     }
 }
