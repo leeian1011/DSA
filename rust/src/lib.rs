@@ -18,4 +18,15 @@ mod tests {
         algorithms::selection_sort::linear_selection_sort(&mut arr);
         assert_eq!(arr, [1, 2, 3, 4, 5]);
     }
+
+    #[test]
+    fn it_works_recursive_sum() {
+        let arr: [i32; 0] = [];
+        let arr2: [i32; 5] = [1, 2, 3, 4, 5];
+        let arr3: [i32; 2] = [10, 5];
+        assert_eq!(algorithms::recursive::recursive_sum(&arr), 0);
+        assert_eq!(algorithms::recursive::recursive_sum(&arr2), 15);
+        assert_eq!(algorithms::recursive::recursive_count(&arr2), 5);
+        assert_eq!(algorithms::recursive::recursive_max(&arr3), 10);
+    }
 }
