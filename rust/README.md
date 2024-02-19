@@ -26,3 +26,7 @@ and so on and so forth.
 
 - The following `j`-based for loop is to iterate the remaining ***unsorted*** array, we know that at the end of the `j` loop we would have found the smallest member that is not placed into their
 correct position. We iterate from `i` up, because we know that `i - 1` has been sorted in the previous iteration.
+
+# Recursion
+
+Honestly, it is pretty hard to grasp even for the simple ones like recursive_max and recursive_count, my logic very bad 
