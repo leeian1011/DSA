@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn linear_selection_sort<T: PartialEq + PartialOrd + Eq + Ord + Copy>(arr: &mut [T]) {
     let length = arr.len();
     for i in 0..length {
