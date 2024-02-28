@@ -36,7 +36,7 @@ Honestly, it is pretty hard to grasp even for the simple ones like recursive_max
 This is a sorting algorithm that is much more understandable on paper with recursion. You have an array of elements, you'll have to choose one of the elements as a pivot, and then
 partition the elements such that you have a set of elements < pivot and a set of elements > pivot.
 It ends up looking something like this
-[img](./images/qsort.png)
+![img](./images/qsort.png)
 
 The `qsort` is then done recursively on the lower-bound and upper-bound partitions.
 
