@@ -30,3 +30,15 @@ correct position. We iterate from `i` up, because we know that `i - 1` has been 
 # Recursion
 
 Honestly, it is pretty hard to grasp even for the simple ones like recursive_max and recursive_count, my logic very bad 
+
+# Quicksort
+
+This is a sorting algorithm that is much more understandable on paper with recursion. You have an array of elements, you'll have to choose one of the elements as a pivot, and then
+partition the elements such that you have a set of elements < pivot and a set of elements > pivot.
+It ends up looking something like this
+[img](./images/qsort.png)
+
+The `qsort` is then done recursively on the lower-bound and upper-bound partitions.
+
+All recursive problems can be solved iteratively. I plan to rewrite my qsort to be iterative. The book I was reading suggested using two new Vec/List to hold the upper&lower bounds.
+For all algorithms in this book, I will be writing them in-place as to better my understanding and introduce a bit more challenge.
