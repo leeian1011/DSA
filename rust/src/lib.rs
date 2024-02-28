@@ -29,4 +29,14 @@ mod tests {
         assert_eq!(algorithms::recursive::recursive_count(&arr2), 5);
         assert_eq!(algorithms::recursive::recursive_max(&arr3), 10);
     }
+
+    #[test]
+    fn it_works_qsort() {
+        let mut arr: [u8; 10] = [7, 3, 1, 2, 8, 9, 4, 0, 5, 6];
+        let mut arr2: [u8; 10] = [7, 7, 2, 2, 18, 4, 3, 1, 222, 6];
+        algorithms::quick_sort::qsort(&mut arr);
+        algorithms::quick_sort::qsort(&mut arr2);
+        assert_eq!(arr, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        assert_eq!(arr2, [1, 2, 2, 3, 4, 6, 7, 7, 18, 222]);
+    }
 }
