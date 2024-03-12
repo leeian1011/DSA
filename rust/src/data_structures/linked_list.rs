@@ -1,4 +1,4 @@
-use std::borrow::{BorrowMut, Borrow};
+use std::borrow::BorrowMut;
 
 #[derive(Debug)]
 struct Node {
@@ -29,6 +29,7 @@ pub struct LinkedList {
     head: Option<Box<Node>>,
 }
 
+#[allow(dead_code)]
 impl LinkedList {
     pub fn new() -> Self {
         Self {
