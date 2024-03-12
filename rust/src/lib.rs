@@ -48,4 +48,11 @@ mod tests {
         assert_eq!(algorithms::linear_search::linear_search_contains(&arr, 255), false);
         assert_eq!(algorithms::linear_search::linear_search_contains(&arr, 22), true);
     }
+
+    #[test]
+    fn it_works_bubble_sort() {
+        let mut arr: [u8; 10] = [3, 5, 10, 124, 255, 20, 73, 64, 98, 100];
+        algorithms::bubble_sort::bubble_sort(&mut arr);
+        assert_eq!(arr, [3, 5, 10, 20, 64, 73, 98, 100, 124, 255]);
+    }
 }
