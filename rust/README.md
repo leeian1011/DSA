@@ -42,3 +42,9 @@ The `qsort` is then done recursively on the lower-bound and upper-bound partitio
 
 All recursive problems can be solved iteratively. I plan to rewrite my qsort to be iterative. The book I was reading suggested using two new Vec/List to hold the upper&lower bounds.
 For all algorithms in this book, I will be writing them in-place as to better my understanding and introduce a bit more challenge.
+
+# Linked List
+I'm not too sure if this was the intended way to write a Linked List? I just went with what I remembered/learnt from writing C by allocating the next node on the heap and storing the pointer
+to it, in rust this would be the `Box` type, a simple smart(?) pointer for heap-allocation.
+I used a lot of the built-in `Option` type's convenience method when writing this implementation, and its only a Singly-linked list, I'd imagine a doubly-linked list is much more annoying
+to implement.
