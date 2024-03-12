@@ -39,4 +39,13 @@ mod tests {
         assert_eq!(arr, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
         assert_eq!(arr2, [1, 2, 2, 3, 4, 6, 7, 7, 18, 222]);
     }
+
+    #[test]
+    fn it_works_linear_search() {
+        let arr: [u8; 10] = [0, 3, 4, 8, 9, 22, 37, 11, 3, 14];
+        assert_eq!(algorithms::linear_search::linear_search_index(&arr, 17), None);
+        assert_eq!(algorithms::linear_search::linear_search_index(&arr, 3), Some(1));
+        assert_eq!(algorithms::linear_search::linear_search_contains(&arr, 255), false);
+        assert_eq!(algorithms::linear_search::linear_search_contains(&arr, 22), true);
+    }
 }
