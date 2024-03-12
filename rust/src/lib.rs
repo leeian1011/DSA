@@ -55,4 +55,19 @@ mod tests {
         algorithms::bubble_sort::bubble_sort(&mut arr);
         assert_eq!(arr, [3, 5, 10, 20, 64, 73, 98, 100, 124, 255]);
     }
+
+    #[test]
+    fn linked_list() {
+        use data_structures::linked_list::LinkedList;
+
+        let mut ll = LinkedList::new();
+
+        ll.insert(15);
+        ll.insert(20);
+        println!("{:?}", ll);
+        assert_eq!(ll.index(1), Some(20));
+        assert_eq!(ll.index(0), Some(15));
+        ll.pop_front();
+        assert_eq!(ll.index(0), Some(20));
+    }
 }
