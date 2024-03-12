@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn linear_search_contains<T: PartialEq + Eq + PartialOrd + Ord + Copy>(arr: &[T], item: T) -> bool {
     for _item in arr {
         if item == *_item {
@@ -8,6 +9,7 @@ pub fn linear_search_contains<T: PartialEq + Eq + PartialOrd + Ord + Copy>(arr: 
     false
 }
 
+#[allow(dead_code)]
 pub fn linear_search_index<T: PartialEq + Eq + PartialOrd + Ord + Copy>(arr: &[T], item: T) -> Option<usize> {
     let len = arr.len();
     for i in 0..len {

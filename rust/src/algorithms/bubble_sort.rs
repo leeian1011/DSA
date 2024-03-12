@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn bubble_sort<T: PartialEq + Eq + PartialOrd + Ord + Copy>(arr: &mut [T]) {
     let mut len = arr.len();
 

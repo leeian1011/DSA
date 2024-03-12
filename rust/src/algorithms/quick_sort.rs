@@ -1,4 +1,5 @@
 // This qsort takes it's pivot from the end
+#[allow(dead_code)]
 pub fn qsort(arr: &mut [u8]) {
     let length = arr.len();
     if length < 2 {
