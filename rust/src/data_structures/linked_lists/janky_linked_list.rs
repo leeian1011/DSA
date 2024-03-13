@@ -1,4 +1,4 @@
-use std::{borrow::BorrowMut, rc::Rc, cell::RefCell};
+use std::borrow::BorrowMut;
 
 #[derive(Debug)]
 struct Node {
@@ -10,7 +10,7 @@ impl Node {
     fn new(item: u32, next: Option<Box<Node>>) -> Self {
         Self {
             item,
-            next: None
+            next
         }
     }
 
@@ -25,31 +25,20 @@ impl Node {
 
 #[allow(dead_code)]
 #[derive(Debug)]
-pub struct StackLinkedList {
+pub struct JankLinkedList {
     head: Option<Box<Node>>,
 }
 
 #[allow(dead_code)]
-impl StackLinkedList {
+impl JankLinkedList {
     pub fn new() -> Self {
         Self {
             head: None
         }
     }
 
-    pub fn better_pop(&mut self) -> Option<u32> {
-        self.head.take().map(|node| {
-            self.head = node.next;
-            node.item
-        })
-    }
 
-    pub fn better_insert(&mut self, value: u32) {
-        let new_node = Box::new(Node::new(value, self.head.take()));
-
-        self.head = Some(new_node);
-    }
-
+    // this insert is iterative lol defeats the purpose of a linked list
     pub fn insert(&mut self, value: u32) {
         if self.head.is_none() {
             self.head = Some(Box::new(Node::new(value, None)))
@@ -67,6 +56,27 @@ impl StackLinkedList {
         }
     }
 
+    // inserts at the head but is more verbose
+    pub fn slightly_better_insert(&mut self, value: u32) {
+        let mut new_node = Box::new(Node::new(value, None));
+        if self.head.is_none() {
+            self.head = Some(new_node);
+            return;
+        }
+
+        let mut curr_head = self.head.take().unwrap();
+        new_node.next = curr_head.next;
+        curr_head.next = Some(new_node);
+        self.head = Some(curr_head); 
+    }
+
+    pub fn better_insert(&mut self, value: u32) {
+        let new_node = Box::new(Node::new(value, self.head.take()));
+
+        self.head = Some(new_node);
+    }
+
+    // decent pop front ?
     pub fn pop_front(&mut self) {
         let head = self.head.borrow_mut();
         if head.is_none() {
@@ -80,6 +90,13 @@ impl StackLinkedList {
                 *head = Some(next.take().unwrap())
             }
         }
+    }
+
+    pub fn better_pop(&mut self) -> Option<u32> {
+        self.head.take().map(|node| {
+            self.head = node.next;
+            node.item
+        })
     }
 
     pub fn index(&self, index: usize) -> Option<u32> {
@@ -108,36 +125,4 @@ impl StackLinkedList {
             iteration += 1;
         }
     }
-}
-
-pub struct QueueLinkedList {
-    head: Option<Rc<RefCell<Node>>>,
-    tail: Option<Rc<RefCell<Node>>>
-}
-
-impl QueueLinkedList {
-    pub fn new() -> Self {
-        Self {
-            head: None,
-            tail: None
-        }
-    }
-
-    pub fn insert(&mut self, item: u32) {
-        let mut item_ptr = Box::new(Node::new(item));
-
-        if self.head.is_none() && self.tail.is_none() {
-        }
-        
-        if head_next.is_none() {
-            *head_next = Some(item_ptr);
-            self.tail = Some(head_next.as_ref().unwrap());
-            return;
-        } else {
-            // item ---head--> curr-head
-            // head -> item -> ex-head
-            // 
-        }
-    }
-
 }
